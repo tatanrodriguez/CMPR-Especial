@@ -13815,7 +13815,7 @@ p.nominalBounds = new cjs.Rectangle(-28.5,-34.7,57.2,69.6);
 		this.ver_gaitan.addEventListener("click", fl_ClickToGoToWebPage);
 		
 		function fl_ClickToGoToWebPage() {
-			window.open("http://www.interactibo.com/jorgeeliecergaitan.html", "_blank");
+			window.open("https://tatanrodriguez.github.io/Interactibo/jorgeeliecergaitan.html", "_blank");
 		}
 	}
 	this.frame_16 = function() {
@@ -13848,7 +13848,7 @@ p.nominalBounds = new cjs.Rectangle(-28.5,-34.7,57.2,69.6);
 		this.ver_rafael.addEventListener("click", fl_ClickToGoToWebPage_2);
 		
 		function fl_ClickToGoToWebPage_2() {
-			window.open("http://www.interactibo.com/rafaeluribeuribe.html", "_blank");
+			window.open("https://tatanrodriguez.github.io/Interactibo/rafaeluribeuribe.html", "_blank");
 		}
 	}
 	this.frame_23 = function() {
@@ -13881,7 +13881,7 @@ p.nominalBounds = new cjs.Rectangle(-28.5,-34.7,57.2,69.6);
 		this.ver_gonzalo.addEventListener("click", fl_ClickToGoToWebPage_3);
 		
 		function fl_ClickToGoToWebPage_3() {
-			window.open("http://www.interactibo.com/gonzalobravoperez.html", "_blank");
+			window.open("https://tatanrodriguez.github.io/Interactibo/gonzalobravoperez.html", "_blank");
 		}
 	}
 	this.frame_30 = function() {
@@ -13914,7 +13914,7 @@ p.nominalBounds = new cjs.Rectangle(-28.5,-34.7,57.2,69.6);
 		this.ver_palacio.addEventListener("click", fl_ClickToGoToWebPage_4);
 		
 		function fl_ClickToGoToWebPage_4() {
-			window.open("http://www.interactibo.com/palaciodejusticia.html", "_blank");
+			window.open("https://tatanrodriguez.github.io/Interactibo/palaciodejusticia.html", "_blank");
 		}
 	}
 
