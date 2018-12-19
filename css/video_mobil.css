@@ -1,0 +1,196 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+@keyframes boton {
+    0% {
+        
+        background: rgba(255, 255, 255, 0);
+        
+        
+    }
+    
+    50% {
+          
+       background: rgba(255, 255, 255, 0.3);
+      
+    }
+    
+    100% {
+
+        background: rgba(255, 255, 255, 0);
+        
+    }
+}
+
+ .boton a {
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    color: #FFF;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: sans-serif;
+    background: rgba(97, 30, 91, 1);
+    border: 1px solid #FFF;
+    transition: all 0.5s;
+    animation-name:boton;
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+
+    
+}
+
+.boton a:hover {
+    animation: none;
+    background: rgba(255, 255, 255, 0.6);
+    color: rgba(97, 30, 91, 1);
+    transition: all 0.5s;
+    
+}
+
+
+
+.boton {
+    display: block;
+    text-align: center;
+    bottom: 15%;
+    position: fixed;
+    height: auto;
+    width: 100%;
+}
+
+
+
+h1 {
+    position: fixed;
+    display: block;
+    bottom:5%;
+    position: fixed;
+    height: auto;
+    width: 100%;
+    color: #FFF;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    letter-spacing: 6px;
+    animation-name: inter;
+    animation-duration: .2s;
+    animation-delay: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+    
+}
+
+@keyframes inter {
+    0% {
+        transform: rotate(0deg);
+    }
+    
+    25% {
+        transform:rotate(10deg);
+    }
+    
+     75% {
+        transform:rotate(-10deg);
+    }
+    
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+
+
+#gonzalo {
+    background-image: url(../img/gif_gonzalo.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 100vh;
+    
+}
+
+
+#jorge {
+    background-image: url(../img/gif_gaitan.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 100vh;
+}
+
+#palacio {
+    background-image: url(../img/gif_palacio.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 100vh;
+}
+
+
+#rafael {
+    background-image: url(../img/gif_video_mobil.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+
+
+
+
+
+
+
+

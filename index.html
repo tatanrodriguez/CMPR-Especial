@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>INTERACTIBO - INICIO</title>
+    
+    <!--etiquetas meta-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="author" content="Jonathan Rodriguez, harold cardona">
+    <meta name="description" content="proyecto Web">
+    <meta name="keywords" content="totem, proyecto, interactibo, conflicto, armado, lideres, consiencia">
+    <meta name="robots" content="index,follow">
+    
+    <!--css-->
+    <link rel="stylesheet" href="css/estilos.css">
+    
+    <!--iconos-->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+	<link rel="manifest" href="/img/manifest.json">
+	<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110017775-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-110017775-1');
+    </script>
+
+</head>
+
+<body  onload="init();">
+ 
+ 
+ <!--traductor de google-->
+<div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
+    <style>
+        #google_translate_element {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 10000; 
+             font-family: 'microsoft new tai lue', sans-serif !important;
+        }
+        
+        
+        #google_translate_element span {
+            color:  #FFF !important;
+             font-family: 'microsoft new tai lue', sans-serif !important;
+        }
+        
+        .goog-te-gadget-simple {
+            background: rgba(97, 30, 91, 1);
+            padding: 10px;
+            border: none;
+              font-family: 'microsoft new tai lue', sans-serif !important;
+        }
+    
+    </style>
+ 
+ 
+ 
+ 
+  
+  <script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("CFB1FE35C999A948B09FB7F810E591A9");
+	var lib=comp.getLibrary();
+	handleComplete({},comp);
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	exportRoot = new lib.mapa_interactibo_web();
+	stage = new lib.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		createjs.Ticker.setFPS(lib.properties.fps);
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	function makeResponsive(isResp, respDim, isScale, scaleType) {		
+		var lastW, lastH, lastS=1;		
+		window.addEventListener('resize', resizeCanvas);		
+		resizeCanvas();		
+		function resizeCanvas() {			
+			var w = lib.properties.width, h = lib.properties.height;			
+			var iw = window.innerWidth, ih=window.innerHeight;			
+			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
+			if(isResp) {                
+				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
+					sRatio = lastS;                
+				}				
+				else if(!isScale) {					
+					if(iw<w || ih<h)						
+						sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==1) {					
+					sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==2) {					
+					sRatio = Math.max(xRatio, yRatio);				
+				}			
+			}			
+			canvas.width = w*pRatio*sRatio;			
+			canvas.height = h*pRatio*sRatio;
+			canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';				
+			canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
+			stage.scaleX = pRatio*sRatio;			
+			stage.scaleY = pRatio*sRatio;			
+			lastW = iw; lastH = ih; lastS = sRatio;		
+		}
+	}
+	makeResponsive(true,'width',true,1);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+
+     <!---jquery---->
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+  	<!--easing jquery-->
+	<script src="js/jquery.easing.1.3.js"></script>
+   	<script src="js/jquery.easings.min.js"></script>
+   
+   	<!--scroll-->
+   	<script src="js/scrolling.js"></script>
+   	
+   	<!--mapa interactibo-->
+    <script src="js/createjs-2015.11.26.min.js"></script>
+    <script src="js/mapa_interactibo_web.js"></script>
+    <script src="mapa_mobil/mapa_mobil.js"></script>
+    <script src="js/jquery.vide.js"></script>
+   	
+    <!--formulario-->
+    <script src="js/wufoo.js"></script>
+   
+   <!------------seccion_uno----------------->   
+    <div id="seccion_uno" data-vide-bg=" webm: img/homevideo.webm, ogv:img/homevideo.ovg, mp4: img/homevideo.mp4, poster:img/fondo.jpg"
+  data-vide-options="posterType: jpg, loop: true, muted: false, position: 50% 50%">	
+    
+     <!-- boton back-to-top-->
+      <script src="js/back-to-top.js" type="text/javascript"></script>
+       
+        <div id="contenedor_logo">
+            <img id="logo" src="img/logo.png" alt="interactibo">
+		</div>
+        
+        <header>
+            <input type="checkbox" id="menu-logo">
+            <label class="icon-menu" for="menu-logo"><img class="rayas" src="img/resposive-logo-AZUL.png" alt="interactibo"></label>
+            
+            <nav class="menu" id="menupeg">
+            <input type="checkbox" id="menu-logo-nav">
+            <label class="icon-menu-nav" for="menu-logo"><img class="rayas" src="img/delete.png" style="width: 23px;" alt="interactibo"></label>
+                <ul>
+                    <a id="boton1"  href="index.html#seccion_dos"><li>PROYECTO</li></a>
+                    <a id="boton2"  href="index.html#seccion_tres"><li>MAPA</li></a>
+                    <a id="boton_responsive"  href="index.html#seccion_tres_responsive"><li>PERSONAJES</li></a>
+                    <a id="boton3"  href="index.html#seccion_cuatro"><li>LIBRO</li></a>
+                </ul>
+            </nav>
+        </header>
+        
+        	<!---menu pegajoso-->
+    <script src="js/menu_pegajoso.js"></script>
+        
+        <ul id="redes_fixed">
+            <a href="https://www.facebook.com/InteractiBo-131809214222984/" target="_blank">
+                 <li><img src="img/FACEBOOK.png" alt="Bogotá"></li>
+            </a>
+            <a href="https://www.instagram.com/interacti_bo/?hl=es-la" target="_blank">
+                <li><img src="img/INSTAGRAM.png" alt="interactibo"></li>
+            </a>
+            
+            <a href="https://twitter.com/interacti_bo?lang=es" target="_blank">
+                <li><img src="img/TWITTER.png" alt="conflicto"></li>
+            </a>
+            
+            <a href="https://www.youtube.com/channel/UCKTrDhL8-bcB9hOWjagYFNA?view_as=subscriber" target="_blank">
+                <li><img src="img/YOUTUBE.png" alt="lideres"></li>
+            </a>
+        </ul>
+	</div>
+	
+
+
+ <!----------------seccion_dos--------------------->
+    <div id="seccion_dos">
+      
+       <div class="div_centrado">
+          
+           <img class="celu_responsive_img" src="img/segundo-mockuptotems-solotelefono.gif" alt="totem">
+           
+            <img class="celular_img" src="img/mani-totem.gif" alt="totem">
+            
+            <div class="cont-texto">
+                
+                <h1 class="proyecto">
+                    PRO<br>
+                    YEC<br>
+                    TO<br>
+                </h1>
+            
+                <p class="texto_Proyecto">InteractiBo es un proyecto trasmedia, que busca informar sobre algunos de los acontecimientos relacionados con el conflicto armado que sucedieron en Bogotá. ¿Sabías que en esta ciudad se dieron hechos que cambiaron la historia de tu país?¿Qué sucesos de violencia se te vienen a la mente?. 
+   
+ </p>
+            </div>
+            <div class="cont-texto-dos">
+               <p class="texto_Proyecto_dos"> En este portal web encontrarás parte de las memorias de un territorio que no fue ajeno a la guerra e infortunadamente, sus cicatrices se han venido cerrando hasta el olvido. A través de videos, relatos  y fotografías, podrás involucrarte y e interactuar con la historia de tu ciudad.</p>
+            
+                <h1 class="qr">
+                    QR´S
+                </h1>
+            
+                <p class="texto_qr">InteractiBo te brinda la oportunidad de acercarte a la historia por medio de tótems que encontrarás en los sitios exactos donde sucedieron hechos violentos que  cambiaron  al país. Los tótems contienen un código Qr que podrás escanear. A través de esta herramienta, accederás al portal web y disfrutarás de la información que Interactibo tiene para ti. </p>
+            </div>
+        </div>
+    </div>
+ 
+ <!------------------------seccion_tres----------------->   
+   
+    <div id="seccion_tres">
+          
+          <div id="animation_container" style="background-color:rgba(0, 0, 0, 0.00);width: auto;">
+		<canvas id="canvas"  width="auto" height="auto" style="position: absolute; display: block; background-color:rgba(0, 0, 0, 0.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:auto; height:auto; position: absolute; left: 0px; top: 0px; display: block; box-sizing: content-box;">
+		</div>
+	</div>
+       	
+	 </div>
+	 
+    <div id="seccion_tres_responsive">
+        <div class="person_uno">
+            <h1>JORGE <br/>ELIÉCER GAITÁN</h1>
+            <a href="jorgeeliecergaitan.html">Ver más</a>
+        </div>
+        <div class="person_dos">
+            <h1>GONZALO<br/>BRAVO PERÉZ</h1>
+            <a href="gonzalobravoperez.html">Ver más</a>
+        </div>
+        <div class="person_tres">
+            <h1>PALACIO <br/>DE JUSTICIA</h1>
+             <a href="palaciodejusticia.html">Ver más</a>
+        </div>
+        <div class="person_cuatro">
+            <h1>RAFAEL <br/>URIBE URIBE</h1>
+             <a href="rafaeluribeuribe.html">Ver más</a>
+        </div>
+    </div>
+	 
+<!---------------------seccion_cuatro-------------------->
+    <div id="seccion_cuatro" class="contenedor_uno">
+        <div class="contenedor_libro">
+              <h1>
+                LI <br/>
+                BRO <br/>
+              </h1>
+        </div>
+        
+        <a href="https://articulo.mercadolibre.com.co/MCO-460239299-libro-fotografico-interactibo-_JM"  target="_blank">Comprar</a>
+
+        <div class="contenedor">
+            <div class="blocke_uno">
+                <p>InteractiBO te ofrece otra manera de conocer  la historia de Bogotá, un libro fotográfico que narra los hechos que han cambiado la ciudad. A través del libro “InteractiBO” accederás a las memorias que Bogotá tiene para ti y podrás relacionarte con los lugares donde han sucedido hechos trascendentales para el país. 
+                <br/><br/>
+                    <span class="libro_negrita">Consigue el libro “InteractiBO” y comienza a interactuar con tu ciudad.</span>
+</p>
+            </div>
+            <div class="blocke_dos">
+                    <img src="img/libro-mock-up.png" alt="libro">
+            </div>
+        </div>
+    
+    </div>
+   
+<!--------------------footer----------------------->  
+    <footer>
+        <div id="bluefooter">
+            <div class="div_unofooter">  
+                 <div id="form">
+                    <img src="img/footer-interactibo.png" id="interactibofooter">
+                        <script> var form_direction=0 </script>
+
+                        <style>
+                            .bbarrow{
+                                /*chosen-container-single .chosen-single div*/
+                              position: absolute;
+                              top: 0;
+                              right: 0;
+                              display: block;
+                              width: 18px;
+                              height: 100%;
+                            }
+                        </style>
+                        <link href="/modules/calculations/form/css/form.calculations.css?6186be9911" rel="stylesheet" type="text/css"  />
+
+                        <script type="text/javascript"  src="//www.123contactform.com/modules/calculations/form/js/form.calculations.js.minified.js?6186be9911"></script>
+
+                        <script type="text/javascript">
+                        <!--
+                        var jsGetPlatform = '123';
+                        var tr_parents=[];
+                        var formrules=new Array(0);
+
+                        //-->
+                        </script>
+                        <script type="text/javascript"  src="//www.123contactform.com/includes/encode_decode.js.minified.js?6186be9911"></script>
+
+                        <script type="text/javascript"  src="//www.123contactform.com/includes/interactive123cf.js.minified.js?6186be9911"></script>
+
+                        <style type='text/css'>
+                        .is-embedded-form{ padding: 20px; }
+                            .errormsg { color: #FFFFFF !important; }
+                            .fielderror { color: #FFFF!important; font-size:75%; margin-top:-6px; }
+                            .customerror { background-color: #FFFFFF !important; border-color: #FFFFFF !important; }
+
+                            #form-timer { padding-left:8px;padding-right:8px; float:right;background-color: #000000; color:#FFFFFF; border-radius:3px;overflow:hidden;margin-top:2px;  }
+                            #form-timer .countdown {float:right;}
+                            #form-timer span { line-height: 24px;   padding-bottom: 3px; padding-top: 3px; }
+                            #form-timer span.hours-label,#form-timer span.minutes-label { border-right:#FFFFFF solid 1px;padding-right:6px;margin-right:5px; }
+                            #form-timer span.hours-label,#form-timer span.minutes-label,#form-timer span.seconds-label  { font-size:12px;padding-left:2px;}
+                            #form-timer span.hours-value,#form-timer span.minutes-value,#form-timer span.seconds-value { font-size:15px; }
+                            #form-timer .timer-clock {float:right; padding-right:7px;font-size:15px;}
+
+                            .focus .row:not(.likert-head)  {
+
+                                background: #FEF1C1 !important;
+
+                                margin-left: -10px !important;
+                            }
+
+                            .focus .row .class123-label, .focus .row .class123-likert, .focus .row .class123-likertradio-choice {
+                                color: #000000 !important;
+                            }
+
+                            .upload-dropzone.hover {
+                                background: #FEF1C1 !important;
+                                color: #000000 !important;
+                            }
+
+                            .likert-head {
+                                background: #f8f8f8;
+
+                            }
+                            .class123-likertradio-choice {
+                                list-style-position: inside;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                width: 95%!important;
+                                padding-bottom:2px;
+                            }
+                            .no-margin-top { margin-top:0px !important; }
+                            .validation-error .row {
+                                background: #FFDFDF;
+                                margin-left: -10px !important;
+                            }
+                            .class123-label, .class123-likert, .class123-likertradio-choice { font-family: Verdana, Geneva, sans-serif; font-size: small; color: #000000; top:5px;  word-wrap: break-word; word-break: normal;}
+                            .headline { color: #000000; }
+                            .headline img {  height: auto;   }
+                            .full-height .headline img {  max-width: 100%; }
+                            .class123-labelmic { color: #666666; }
+                            .class123-labelinfo { color: #666666; display: table; margin-top: 5px;  }class123-labelmic { font-family: Verdana, Geneva, sans-serif; font-size: 70%; }
+                            .class123-labelinfo { font-family: Verdana, Geneva, sans-serif; font-size: 70%;  }.class123-radio .class123-labelinfo { margin-top:0px;}
+
+                            /* .label-text { vertical-align:top; word-wrap: break-word; word-break: normal; display:inline-block; max-width:100%; margin-left:-40px; padding-left: 40px;  } */
+
+                            .label-text {
+                                display:table-cell;
+                                vertical-align:top;
+                                word-break: normal;
+                                word-wrap: break-word;
+                            }
+
+                            .class123-twocol .label-text, .class123-threecol .label-text, .class123-sidebyside .label-text{ max-width:auto; }
+
+                            .likert-label .label-text { display:block; position:relative; }
+                            .rowleft.dontchange { margin-top:8px !important; }
+                            .likert-label {padding-top:2px;}
+                            .class123-likert_style_li2 class123-likertradio { vertical-align:middle; }
+                            .class123-likertradio .class123-label { text-align:center !important; margin:0 auto; }
+                            .class123-sidebyside { float: left; /* some styles moved to main.modern.css and main.classic.css */ }
+
+                            #workform .class123-sidebyside { display:table-cell; vertical-align:top; float: left; }
+                            #mainform123 .class123-sidebyside { display:inline-flex; vertical-align:bottom; float: none; display: -ms-inline-flexbox;display: -webkit-inline-flex;}
+
+                            .class123-twocol { display:inline-table;vertical-align:bottom; width:45%; margin:0 5px 0 0;}
+                            .class123-threecol { display:inline-table;vertical-align:bottom;width:30%; margin:0 5px 0 0;}
+
+                            .class123-savereturn { background: none; border: medium none; text-decoration: underline; cursor: pointer; padding:5px 10px;}
+                            .class123-goback { background: none; border: medium none; text-decoration: underline; cursor: pointer; padding:5px 10px; color: #C80042;}
+                            .class123-pbline { display:none; }
+                            .class123-pbprev { background: none; border: medium none; text-decoration: underline; cursor: pointer; padding-left:0px; padding-right:0px; }
+                            .class123_maintable {}
+
+                            #mainform123 .class123-pagination { background-color:#FFFFFF; }
+                            #errordiv { margin-top:0px;  }
+                            .currentPageActive { display:block; }
+                            .currentPageInactive { display:none; }
+                            .hideAlternate { display:block; height:0px;width:0px; overflow:hidden !important;padding:0px;margin:0px;pointer-events: none;position:absolute;left:-2000px;top:0px;}
+                            .formdefaultbutcolor { background-color: CECECE }
+                            .formnotextButton { width:150px; }
+
+                            .fontbold { font-weight: bold; }
+                            .fontitalic { font-style: italic; }
+                            .fontbolditalic { font-weight:bold; font-style:italic; }
+                            .requiredspan { font-size:10px; color:#; margin-left:3px; }
+                            .requiredfield.likert-label .label-text:after{content: "\0000a0*";color:#FFF;font-size:10px;}
+                            .requiredfield:not(.likert-label):after{content: " *";color:#FFF;
+
+
+                            font-size:10px;position:absolute;margin-left:6px;margin-top:5px; line-height:100%; }
+                        </style>
+
+                        <link href="/styles/form_fields.css?6186be9911" rel="stylesheet" type="text/css"  />
+
+                        <style type='text/css'>
+
+                                @media only screen and (max-width:600px){
+                                    .divonecolumn {float:none; width:100%!important;}
+                                    .not-preview label, .not-preview li, .not-preview .class123-likert, .not-preview .label-text {
+                                        font-size:100% !important;
+                                    }
+                                }
+                                 .thebuttons .divonecolumn.second { padding:6px; }
+
+
+                            .class123-likertradio-choice {
+                                margin-top:0px;
+                                line-height:100%;
+                                color: #000000;
+                            }
+                            .pagination-progress-bar { background:#FEF1C1; }
+                            .input-required + label:after {
+                                content:'*';
+                                color: #;
+                                font-size:10px;
+                            }
+                            /* --- BTV 30.05.2016: moved a lot of CSS to /styles/form_new.css --- */
+
+                        </style>
+
+                        <link href="/styles/form_new_v2.css?6186be9911" rel="stylesheet" type="text/css"  />
+                        <!--[if lte IE 8]>
+                        <style type='text/css'>
+                        .class123-likert_style_li2 {height:56px;}
+                        </style>
+                        <![endif]-->
+                        <style type='text/css'>
+
+                        .class123-address .input-required {
+                            background-image: url("images3/asterix.gif");
+                            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIiB2aWV3Qm94PSIwIC0yNTYgMTc5MiAxNzkyIiBpZD0ic3ZnMzAzNyIgdmVyc2lvbj0iMS4xIiBpbmtzY2FwZTp2ZXJzaW9uPSIwLjQ4LjMuMSByOTg4NiIgd2lkdGg9IjUiIGhlaWdodD0iNSIgc29kaXBvZGk6ZG9jbmFtZT0iYXN0ZXJpc2tfZm9udF9hd2Vzb21lLnN2ZyIgc3R5bGU9IgogICAgZmlsbDogI0ZGMDAwMDsKIj4KICA8bWV0YWRhdGEgaWQ9Im1ldGFkYXRhMzA0NyI+CiAgICA8cmRmOlJERj4KICAgICAgPGNjOldvcmsgcmRmOmFib3V0PSIiPgogICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgICAgIDxkYzp0eXBlIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiLz4KICAgICAgPC9jYzpXb3JrPgogICAgPC9yZGY6UkRGPgogIDwvbWV0YWRhdGE+CiAgPGRlZnMgaWQ9ImRlZnMzMDQ1Ii8+CiAgPHNvZGlwb2RpOm5hbWVkdmlldyBwYWdlY29sb3I9IiIgYm9yZGVyY29sb3I9IiIgYm9yZGVyb3BhY2l0eT0iMSIgb2JqZWN0dG9sZXJhbmNlPSIxMCIgZ3JpZHRvbGVyYW5jZT0iMTAiIGd1aWRldG9sZXJhbmNlPSIxMCIgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAiIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiIGlua3NjYXBlOndpbmRvdy13aWR0aD0iNjQwIiBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSI0ODAiIGlkPSJuYW1lZHZpZXczMDQzIiBzaG93Z3JpZD0iZmFsc2UiIGlua3NjYXBlOnpvb209IjAuMTMxNjk2NDMiIGlua3NjYXBlOmN4PSI4OTYiIGlua3NjYXBlOmN5PSI4OTYiIGlua3NjYXBlOndpbmRvdy14PSIwIiBpbmtzY2FwZTp3aW5kb3cteT0iMjUiIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjAiIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzMwMzciLz4KICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLDAsMCwtMSw1My4xNTI1NDIsMTMwOC4yMDM0KSIgaWQ9ImczMDM5Ij4KICAgIDxwYXRoIGQ9Im0gMTQ4Miw0ODYgcSA0NiwtMjYgNTkuNSwtNzcuNSBRIDE1NTUsMzU3IDE1MjksMzExIEwgMTQ2NSwyMDEgUSAxNDM5LDE1NSAxMzg3LjUsMTQxLjUgMTMzNiwxMjggMTI5MCwxNTQgTCAxMDI0LDMwNyBWIDAgcSAwLC01MiAtMzgsLTkwIC0zOCwtMzggLTkwLC0zOCBIIDc2OCBxIC01MiwwIC05MCwzOCAtMzgsMzggLTM4LDkwIFYgMzA3IEwgMzc0LDE1NCBRIDMyOCwxMjggMjc2LjUsMTQxLjUgMjI1LDE1NSAxOTksMjAxIEwgMTM1LDMxMSBRIDEwOSwzNTcgMTIyLjUsNDA4LjUgMTM2LDQ2MCAxODIsNDg2IEwgNDQ4LDY0MCAxODIsNzk0IFEgMTM2LDgyMCAxMjIuNSw4NzEuNSAxMDksOTIzIDEzNSw5NjkgbCA2NCwxMTAgcSAyNiw0NiA3Ny41LDU5LjUgUSAzMjgsMTE1MiAzNzQsMTEyNiBMIDY0MCw5NzMgdiAzMDcgcSAwLDUyIDM4LDkwIDM4LDM4IDkwLDM4IGggMTI4IHEgNTIsMCA5MCwtMzggMzgsLTM4IDM4LC05MCBWIDk3MyBsIDI2NiwxNTMgcSA0NiwyNiA5Ny41LDEyLjUgNTEuNSwtMTMuNSA3Ny41LC01OS41IGwgNjQsLTExMCBxIDI2LC00NiAxMi41LC05Ny41IFEgMTUyOCw4MjAgMTQ4Miw3OTQgTCAxMjE2LDY0MCB6IiBpZD0icGF0aDMwNDEiIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiIHN0eWxlPSIiLz4KICA8L2c+Cjwvc3ZnPg==");
+                            background-repeat: no-repeat;
+                            background-position: right 5px center;
+                            background-size: 5px;
+                        }
+                        </style>
+                        <script type="text/javascript">
+                            var fid=3160188;
+                            var curr='%26%2336%3B';
+                            var preview_iframe=0;
+                            var real_time=0;
+                            </script>
+
+                        <script type="text/javascript">
+                        <!--
+                        var selectedfield='';
+                        var multiPageCurent=1;
+                        var multiPageTotal=1;
+                        function InputActions(field,id) {
+                            window.stopCalculate=true;
+                            var textcolor='';
+                            var hltextcolor='#000000';
+                            $('.class123-labelhidden:not(.hidden_instruction)').addClass('hidden_instruction');
+                            if (!(($(field).prop('tagName') =='INPUT') && (($(field).prop('type')=="text") || ($(field).prop('type')=="password") || ($(field).prop('type')=="email")) ))
+                                if ($(field).prop('tagName') !='TEXTAREA')
+                                    hide_field_error(field);
+
+                            $(field).parents('.fieldcontainer').last().find('.hidden_instruction').removeClass('hidden_instruction');
+                            //var calendar = $('img[title="Close Calendar"]').trigger('click');
+
+                             lastactionobj=field;
+
+                            if (id==selectedfield) { /* alert('do nothing'); */	}
+
+                            // now the field rules
+
+                            InputRules2('beginning','0','0');
+                        }
+
+                        //-->
+                        </script><form role="form"  aria-label="Formulario de Contacto & Leads"  class="form js-form" action="http://www.123contactform.com/form-3160188/Formulario-De-Contacto-Leads" id="mainform123" method="post" name="mainform123" enctype="multipart/form-data" novalidate>
+                        <input type="hidden" name="action" value="verify"/>
+                        <input type="hidden" name="tmp_referer" value=""/>
+                        <input type="hidden" name="tmp_form_host" value=""/>
+                        <input type="hidden" size="30" name="viewformr" id="viewformr" value="cfr_1510754560.5591" />
+                        <input type="hidden" name="f_autoresponder" id="f_autoresponder" value="0"/>
+                        <input type="hidden" name="special_autoresponder" id="special_autoresponder" value=""/>
+                        <input type="hidden" name="submXMLDatetimeStart" id="submXMLDatetimeStart" value="2017-11-15 14:02:40" />
+                        <input type="hidden" id="language" name="language" value="es"/><input type="hidden" id="language-changed" name="languageChanged" value="no"/><div class="class123_maintable maintable_centered form-left-aligned container-normal" style="" >
+
+                        <!-- Form headline begins -->
+                        <div class="optionscontainer headline" tabindex='0' role='alertdialog'><div id="header-text" role=''><div class="header-text-container"><span id="escribenos" size="5" style="font-size: 60px; font-family: 'Microsoft PhagsPa', sans-serif; font-weight:800; color:#FFF;    margin-bottom: 20px; display:block;">Escribenos!<br /></span>
+                        <p></p></div><div class="clear"></div></div>
+                                </div>
+                                <!-- Form headline ends -->
+
+                        <script type='text/javascript'>
+                        var  js_ctype_arr = new Array();
+                        var  js_cobject_arr = new Array();
+                        js_ctype_arr['cid34667898']=0;
+                        js_cobject_arr['cid34667898']=0;
+                        js_ctype_arr['cid34667899']=0;
+                        js_cobject_arr['cid34667899']=0;
+                        js_ctype_arr['cid34667900']=1;
+                        js_cobject_arr['cid34667900']=0;
+
+                        </script><!-- fieldcontainer -->
+                        <div id="fieldcontainer1" data-idcontainer="34667898" class="fieldcontainer currentPage1 currentPageActive  fieldwidth100      "  style="  ">
+                        <div id="row1" class="fieldtype-0-0 row row-fluid currentPage1 currentPageActive">
+                        <div class="subitem col-lg-3 rowleft col-md-3 col-sm-3">
+                        <label class="class123-label class123-fieldname class123-labelAligned fontbold  requiredfield " id="id123-title34667898" for="id123-control34667898" style="padding:10px 10px 10px 0px; font-family: 'microsoft new tai lue', sans-serif;  color:#FFF; display: block; font-size: 17px; font-weight:normal;">Nombre</label></div><div class="subitem col-lg-9 rowright align-left col-md-9 col-sm-9"><input type="hidden" id="errorflagrow1" value=""/><div class="row control-row" ><div class="subitem col-lg-12 col-md-12 col-sm-12"><input  id="id123-control34667898" name="control34667898"     onclick=" InputActions(this,'row1');" onkeyup=" InputActions(this,'row1');  " onchange="InputRules(34667898); ;  " type="text" value="" style="width: 280px; margin:10px 10px 10px 0px; color:#611E5B;" /></div></div></div></div>
+                        </div>
+                        <!-- fieldcontainer ends -->
+
+                        <!-- fieldcontainer -->
+                        <div id="fieldcontainer2" data-idcontainer="34667899" class="fieldcontainer currentPage1 currentPageActive  fieldwidth100      "  style="  ">
+                        <div id="row2" class="fieldtype-0-0 field-validation-7 row row-fluid currentPage1 currentPageActive">
+                        <div class="subitem col-lg-3 rowleft col-md-3 col-sm-3">
+                        <label class="class123-label class123-fieldname class123-labelAligned fontbold  requiredfield " id="id123-title34667899" for="id123-control34667899" style="padding:20px 10px 10px 0px; font-family: 'microsoft new tai lue', sans-serif;  color:#FFF; display: block; font-size: 17px; font-weight:normal;">Email</label></div><div class="subitem col-lg-9 rowright align-left col-md-9 col-sm-9"><input type="hidden" id="errorflagrow2" value=""/><div class="row control-row" ><div class="subitem col-lg-12 col-md-12 col-sm-12"><input  id="id123-control34667899" name="control34667899"     onclick=" InputActions(this,'row2');" onkeyup=" InputActions(this,'row2');  " onchange="InputRules(34667899); ;  " type="email" value="" style="width: 280px; color: #611E5B;" /></div></div></div></div>
+                        </div>
+                        <!-- fieldcontainer ends -->
+
+                        <!-- fieldcontainer -->
+                        <div id="fieldcontainer3" data-idcontainer="34667900" class="fieldcontainer currentPage1 currentPageActive  fieldwidth100      "  style="  ">
+                        <div id="row3" class="fieldtype-1-0 row row-fluid currentPage1 currentPageActive">
+                        <div class="subitem col-lg-3 rowleft col-md-3 col-sm-3">
+                        <label class="class123-label class123-fieldname class123-labelAligned fontbold  requiredfield " id="id123-title34667900" for="id123-control34667900" style="padding:25px 10px 10px 0px; font-family: 'microsoft new tai lue', sans-serif; font-weight:normal; color:#FFF; display: block; font-size: 17px;">Mensaje</label></div><div class="subitem col-lg-9 rowright align-left col-md-9 col-sm-9"><input type="hidden" id="errorflagrow3" value=""/><div class="row control-row"><div class="subitem col-lg-12 col-md-12 col-sm-12"><div class="textarea-container force_block"><textarea   id="id123-control34667900" name="control34667900" onclick=" InputActions(this,'row3');" onkeyup=" InputActions(this,'row3');  " onchange="InputRules(34667900); ;  " rows="4" style="width:auto; "  style=" color:#611E5B !important;"></textarea></div></div><div class="clear"></div></div></div></div>
+                        </div>
+                        <!-- fieldcontainer ends -->
+
+                        <script type="text/javascript"> var f_fixedamount='0';
+                            var nr_fields=3;
+                            this.nr_fields=nr_fields;
+                            this.form_is_quiz='';
+                            var calc_fields=0;
+                            </script>
+                        <div class="row"><div class="subitem col-lg-12 col-md-12 col-sm-12"><div id="checkout_form_con"></div></div></div>
+                        <!-- Buttons begin here -->
+                        <div id="fieldcontainer4" class="fieldcontainer thebuttons" style="">
+                        <div class="row currentPage1 currentPageActive"><div class="subitem col-lg-9 pull-right text-left col-md-9 col-sm-9"><input type="hidden" name="go_back_and_edit" id="go_back_and_edit" value="0" />        
+                                <input type="hidden" name="submissionUniqueId" value="pending_5a0c49009e383" > 
+                        <button OnClick=" insertPleaseWaitDiv(this,'Por favor aguarda...');  " type="submit" class="
+                                         no-default-image btn submit-btn formdefaultbut boton_enviar"  style=" background: #FFF; padding:10px 10px 10px 0px; font-family: 'microsoft new tai lue', sans-serif; display: block; font-size: 17px; border: none; margin-top:20px; padding: 10px 20px;  cursor: pointer;" id="id123-button-send" value="Enviar "> Enviar </button> 
+                        </div></div>
+                        <div class="clear"></div></div>
+                        <!-- fieldcontainer ends -->
+                        <!-- Buttons end here -->
+                        </div>
+                                <input type="hidden" name="hiddenfields" id="hiddenfields" value=""/>
+                                <input type="hidden" name="hiddenfields_pages" id="hiddenfields_pages" value=""/>
+                                <input type="hidden" name="activepage" id="activepage" value="1"/>
+                                <input type="hidden" name="totalpages" id="totalpages" value="1"/>
+                                <input type="hidden" name="nextpagenr" id="nextpagenr" value="2"/>
+                                <input type="hidden" name="prevpagenr" id="prevpagenr" value="0"/>
+
+                                <script type="text/javascript">
+                                InputRules('firsttime')
+                                </script><input type="hidden" name="usage" value="e"/>
+                        </form>
+                        <p align='center' class='float-left full-with'></p><script type="text/javascript">multiPageTotal=1;</script>
+                        <div class="clear"></div>
+                        <script type="text/javascript">window.date_piker_extra_height = false;</script>
+                        <!-- www.123contactform.com script ends here -->
+                 </div>
+                    
+                 <div id="contact">
+                    <div id="textocontacto">
+                        <h1 id="contacto">
+                               CON<br>
+                               TAC<br>
+                               TO
+                        </h1>
+                    </div>
+                    
+                    <div id="infocontacto">
+                        <h3 class="textogris">
+                               +57 311 462 1521 <br>
+                               interactiBOGO@gmail.com
+                        </h3>
+                    </div>
+                 </div>
+          </div>
+      </div>
+  
+  <div id="purplefooter">
+    <div class="div_dosfooter">  
+           <div class="redesfooter">
+              
+                <div class="pictogramas">
+                    <a href="https://www.facebook.com/InteractiBo-131809214222984/" target="_blank">   
+                       <img src="img/FACEBOOK.png">
+                    </a>
+                </div>  
+             <div class="pictogramas">
+                  <a href="https://www.instagram.com/interacti_bo/?hl=es-la" target="_blank">
+                    <img src="img/INSTAGRAM.png">
+                 </a>
+             </div> 
+             <div class="pictogramas">
+                  <a href="https://twitter.com/interacti_bo?lang=es" target="_blank">
+                     <img src="img/TWITTER.png">
+                 </a>
+             </div> 
+             <div class="pictogramas">
+                <a href="https://www.youtube.com/channel/UCKTrDhL8-bcB9hOWjagYFNA?view_as=subscriber" target="_blank">
+                     <img src="img/YOUTUBE.png">
+                 </a>
+             </div> 
+           </div>
+           <div class="quarzoysena" >
+             <img src="img/senayquarzo.png" id="logossenaquarzo">
+           </div>
+           <div class="derechos">
+             <h5 class="textogris2">
+                © 2017 	PROYECTO INTERACTIBO - TODOS LOS DERECHOS RESERVADOS
+              </h5>
+           </div>
+  </div>
+  </div>
+	</footer>
+    
+</body>
+</html>

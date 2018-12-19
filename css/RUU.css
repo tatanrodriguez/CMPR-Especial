@@ -1,0 +1,1061 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+	margin-top: 17px;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*-------------------------------------------------*/
+
+#seccion-uno{
+     width: 100%;
+     height: 48px;
+     font-family: sans-serif;
+     background-color:#fff;
+    position:fixed;
+	z-index:1100;
+
+  
+}
+#raya{
+	 width: 2px;
+    height: 35px;
+    background-color: #611E5B;
+    display: -webkit-inline-box;
+    vertical-align: inherit;
+    margin-left: 10px;
+	
+}
+.textopersonaje{
+	font-family: 'microsoft new tai lue', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: left;
+    color: #611E5B;
+	display: -webkit-inline-box;
+	vertical-align: super;
+	margin-left: 10px;
+    margin-top: 5px
+}
+.logo{
+    width: 30px;
+    margin-left: 14px;
+    margin-top: 5px;
+	}
+header {
+    position: absolute;
+    width: 100%;
+    bottom: 24%;
+    z-index: 1200;
+}
+
+.menu{
+    position:absolute;
+   float:none;
+   width:100%;
+   height:100vh;
+   background-color:#611E5B;
+   opacity:1;
+   top:48px;
+   left:0;
+   transition:all 0.5s;
+   transform:translateX(-100%);
+   padding-top:50px;
+   z-index:1300 !important;
+   display:table;
+    
+}
+
+.menu li {
+    cursor: pointer;
+    display:block;  
+	text-align:center;
+    padding: 20px 0;
+}
+
+.menu li:hover {
+    background: #FFF;
+}
+
+.menu li:hover > a{
+     color:#611E5B;   
+}
+
+.menu li a {
+  
+    font-family: 'Microsoft PhagsPa', sans-serif;
+    text-decoration: none; 
+    color: #fff;
+    font-size: 14px;
+    transition: ease .6s;
+    
+
+
+}
+ 
+.menu li a:hover {
+    transition: ease .6s;
+	width:100%;
+}
+
+.menu li a:active {
+    color: #fff !important; 
+	background-color: #fff !important;
+}
+#menu-logo{
+	display:none;
+	}
+#menu-logo:checked ~ .menu{
+    transform:translateX(0%);
+	}
+#menu-logo:checked ~ .iframeyt{
+	position:none !important;
+	}
+.icon-menu{
+	float:right;
+	cursor:pointer;
+	margin:15px 15px;
+	}
+/*------------------------media header fixed-------------------------*/
+@media screen and (max-width: 1024px){
+	#seccion-uno{
+     width: 100%;
+     height: 36px;
+     font-family: sans-serif;
+     background-color:#fff;
+    position:fixed;
+
+  
+}
+#raya{
+	
+	width: 2px;
+    height: 22px;
+    background-color: #611E5B;
+    display: -webkit-inline-box;
+    vertical-align: inherit;
+    margin-left: 2px;
+	
+}
+.textopersonaje{
+	font-family: 'microsoft new tai lue', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: left;
+    color: #611E5B;
+    display: -webkit-inline-box;
+    vertical-align: super;
+    margin-left: 3px;
+}
+
+	.logo{
+		width: 20px;
+    margin-left: 7px;
+    margin-top: 5px;
+	}
+header {
+    position: absolute;
+    width: 100%;
+    bottom: 24%;
+    z-index: 1000;
+}
+	
+
+}
+@media screen and (min-width: 1024px){
+	.menu{
+	position:static;
+	width:auto;
+	height:auto;
+	transform:translateX(0%);
+	float:right;
+	display:inline-block;
+	background-color: #fff;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    padding-top: 0px;
+	}
+.icon-menu{
+	display:none;
+	float:none;
+	}
+.menu li {
+    padding: 0 20px 0 10px;
+    display:inline-block; 
+	height:30px;   
+	background-color:#fff;
+	text-align:center;
+	
+}
+	.menu li a {
+    font-family: 'Microsoft PhagsPa', sans-serif;
+    margin: 0 25px 0 25px;
+    padding: 15px 20px;
+    text-decoration: none; 
+    color: #611E5B;
+    font-size: 14;
+    transition: ease .6s;
+	
+	}
+	.menu li a:hover {
+ 	background-color: #611E5B;
+    transition: ease .6s;
+    color: #fff;
+	width:100%;
+}
+	.menu li a:hover {
+ 	background-color: #611E5B;
+    transition: ease .6s;
+    color: #fff;
+	width:100%;
+}
+
+.menu li a:active {
+    color: #fff !important; 
+	background-color: #611E5B; !important;
+}
+}
+/* para js del menu */
+
+.fixed {
+    
+    position: fixed;
+    width:100%;
+    height:48px;
+    top:0;
+    left:0;
+    transition: ease .5s;
+    background-color:#fff;  
+    z-index: 999;
+    
+  /* -----seccion-ytvideoframer */
+}
+
+#uno{
+  width:100%;
+  height:auto;
+  background-color: #611E5B;
+  margin:0 auto;
+  padding-top:48px;
+     }
+#videoyt{
+     width: 100%;
+     height: auto;
+     font-family: sans-serif;
+     margin:0 auto;
+
+  
+} 
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+	
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	
+}
+/*------------------------media yt video-------------------------*/
+@media screen and (max-width: 1024px){
+	#uno{
+  width:100%;
+  height:auto;
+  background-color: #611E5B;
+  margin:0 auto;
+  z-index: 10;
+  padding-top:40px;
+     }
+}
+/* ---------------------seccion-dos---------------- */
+.subtitulos{
+	font-family: 'microsoft new tai lue', sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 27px;
+    color: #611E5B;
+	text-align:initial;
+	}
+#seccion-dos{
+     width: 100%;
+     height: auto;
+     font-family: sans-serif;
+}
+#contentdos{
+	width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+.contentdos1{
+	width: 100%;
+    height: auto;
+    display: block;
+	}
+	
+#infogaitanpickprofile{
+	width:300px;
+	height:400px;
+	background-color:#090E3C;
+	margin-top: -115px;
+	margin: 0 auto;
+	}
+#infoprofilep{
+	    font-family: 'microsoft new tai lue', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 18px;
+    text-align: left;
+    margin-left: 41px;
+    vertical-align: middle;
+    color: #fff;
+    box-sizing: border-box;
+    padding-top: 134px;
+	}
+	.imagecentral{
+	margin-top: 45px; 
+ 	width:330px;
+		}
+		.iframemap{
+	width:100%;
+}
+.contentdos2{
+	width: 90%;
+    height: auto;
+    display: block;
+    margin: 0px 0px 0px 20px;
+	}
+#rayahorizintal{
+	width:246px;
+	height:26px;
+	background-color:#74164E;
+    margin-top: 45px;
+}
+.titles{font-family: 'microsoft new tai lue', sans-serif;
+    font-weight: bold;
+    margin-top: 18px;
+    font-size:3em;
+    line-height: 1em;
+    text-align: left;
+    color: #74164E;
+    display: inline-block;
+    
+}
+.parrafo1{
+    font-family: 'microsoft new tai lue', sans-serif;
+    text-align: justify;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 26px;
+    padding-top: 5px;
+}
+
+/*----mediascreen seccion-dos----*/
+          @media screen and (min-width: 1024px){
+			  #seccion-dos{
+     width: 100%;
+     height: auto;
+
+	 display:block;
+}
+#contentdos{
+	width:1280px;
+	height:1316px;
+	margin:0 auto;
+}
+.contentdos1{
+	width:436px;
+	height:1316px;
+	float:left;
+	display:inline-block;
+	}
+	
+#infogaitanpickprofile{
+	width:436px;
+	height:450px;
+	background-color:#090E3C;
+	margin-top: -115px;
+	}
+	.imagecentral{
+	margin-top: 45px; 
+ 	width:330px;
+		}
+.iframemap{
+	width:80%;
+}
+.contentdos2{
+	width:770px;
+	height:auto;
+	float:left;
+	display:inline-block;
+	margin-left:36px;
+	margin-right:36px;
+	}
+#rayahorizintal{
+	width:230px;
+	height:26px;
+	background-color:#74164E;
+}
+.titles{font-family: 'microsoft new tai lue', sans-serif;
+    font-weight: bold;
+    margin-top: 18px;
+    font-size: 80px;
+    line-height: 66px;
+    text-align: left;
+    color: #74164E;
+    display: inline-block;
+    
+}
+.parrafo1{
+    font-family: 'microsoft new tai lue', sans-serif;
+    text-align: justify;
+    margin: 0px auto;
+    font-size: 18px;
+    line-height: 26px;
+    padding-top: 30px;
+	text-align:justify;
+}
+			  }
+	 @media screen and (max-width: 460px){
+	.imagecentral{
+	margin-top: 45px; 
+ 	width:78%;
+		}
+		#infogaitanpickprofile{
+	width:100%;
+	height:450px;
+	background-color:#090E3C;
+	margin-top: -115px;
+	}
+				   }
+/* ---------------------seccion-complemento---------------- */
+#complemento{
+	width: 100%;
+     height: auto;
+     font-family: sans-serif;
+	 padding-bottom: 30px;
+}
+
+#contentcomplemento{
+	width:1200px;
+	height:auto;
+	margin:0 auto;
+}
+.internocomplento {
+            -webkit-column-count:2;
+            -moz-column-count:2;
+            column-count:2;
+   -moz-column-gap: 3em;
+	    -webkit-column-gap: 3em;
+	    column-gap: 3em;
+  -moz-column-width: 163px;	        
+	    -webkit-column-width: 163px;
+	    column-width: 163px;
+        }
+/*----mediascreen seccion-complemento----*/
+          @media screen and (max-width: 1024px){
+			  #contentcomplemento{
+	width:90%;
+	height:auto;
+	margin:0 auto;
+}
+			  }		  		 		  
+/* ---------------------seccion-tres---------------- */
+#seccion-tres{
+	background:url(../img/imagen-alusiva-RAFAEL.png) center no-repeat;
+    background-size: cover;
+	width:100%;
+	height:800px;
+	display:block;
+	
+}
+
+/* ---------------------seccion-cuatro---------------- */
+
+#seccion-cuatro{
+	width: 100%;
+     height: auto;
+     font-family: sans-serif;
+}
+#contentcuatro{
+	width:1280px;
+	
+	margin:0 auto;
+}
+.contentcuatro1{
+	width:1280px;
+
+}
+.cuadro{
+	width: 372px;
+    height: 415px;
+	display:inline-block;
+	float:left;
+	margin: 40px 0px 40px 40px;
+}
+#conoceaunmas{
+	 font-size: 35px;
+    color: #74164E;
+    font-family: 'microsoft new tai lue', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 30px;
+	}
+.contentcuatro2{
+	width:1280px;
+	height:600px;
+}
+.cuadro2{
+	width: 370px;
+    height: auto;
+	display:inline-block;
+	float:left;
+	margin: 40px 0px 40px 40px;
+}
+.profilesaunmas{
+	width:90%;
+ 	height:auto;
+	}
+/*----mediascreen seccion-cuatro----*/
+ @media screen and (max-width: 1024px){
+	 #seccion-cuatro{
+	width: 100%;
+     height: auto;
+     font-family: sans-serif;
+	 display:block;
+}
+#contentcuatro{
+	width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+.contentcuatro1{
+	width:100%;
+}
+.cuadro{
+	    width: 90%;
+    height: auto;
+    display: block;
+    margin: 0px 0px 0px 20px;
+
+}
+.contentcuatro2{
+	width:100%;
+	height:auto;
+	background:url(../img/wildtextures-urban-wall.jpg);
+}
+.cuadro2{
+	    height: auto;
+    display: initial;
+    float: none;
+}
+.profilesaunmas{
+	width:90%;
+ 	height:auto;
+	margin-top: 30px;
+	}
+#conoceaunmas{
+	 font-size: 35px;
+    color: #74164E;
+    font-family: 'microsoft new tai lue', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 0px;
+	}
+
+	
+	 }
+@media screen and (max-width: 450px){
+	.cuadro2{
+	width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+	margin-top: 30px;
+}
+#conoceaunmas{
+	 font-size: 35px;
+    color: #74164E;
+    font-family: 'microsoft new tai lue', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 0px;
+	}
+	.profilesaunmas{
+	width:90%;
+ 	height:auto;
+	}
+	}
+
+/*----------------- footer ---------------*/
+footer{
+  background-color:#090E3C;
+   width: 100%;
+  height: auto;}
+#bluefooter{
+    padding-bottom: 50px;
+  width:100%;
+  height:auto;
+}
+footer .div_unofooter{
+  width:80%;
+  height:auto;
+  margin:0 auto; 
+    text-align: center;
+}
+#form{
+    text-align: left;
+  width:auto;
+    margin: 3%;
+display: inline-block;
+  
+}
+
+
+.boton_enviar {
+	background: none !important;
+	border: 1px solid #FFF !important;
+	color: #FFF !important;
+}
+
+.boton_enviar:hover {
+	background: #FFF !important;
+	color: black !important;
+	border:none !important;
+}
+
+#interactibofooter{
+    padding-top: 30px;
+  margin:32px 0px;
+}
+#contact{
+  width:auto;
+display: inline-block;
+  height:auto;
+ 
+}
+#textocontacto{
+  width:324px;
+  height:284px;
+display: inline-block;
+    
+
+}
+#contacto{
+  font-family: 'microsoft new tai lue', sans-serif;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 75px;
+    text-align: left;
+    color:#006DA4;
+    padding-top:30px;
+    padding-left:50px;
+
+}
+#infocontacto{
+  width:324px;
+  height:168px;
+}
+.textogris{
+  font-family: 'microsoft new tai lue', sans-serif;
+    text-align: justify;
+    margin: 0px auto;
+    line-height: 35px;
+    padding: 30px 50px 0px 50px;
+    color:#A0A0A0;
+}
+.textogris2{
+	    font-size: 11px;
+  		font-family: 'microsoft new tai lue', sans-serif;
+    	text-align: justify;
+    	margin: 0px auto;
+    	line-height: 28px;
+    	
+    	color:#A0A0A0;
+}
+
+#menufooter{
+  width:388px;
+  height:452px;
+  display: inline-block;
+}
+#menufooter #menupeg2 {
+	padding-top: 35%;
+	width: 80%;
+	margin: 0 auto;
+}
+
+#menufooter #menupeg2 .menu2{
+    text-align:center;   
+}
+
+#menufooter #menupeg2 .menu2 li {
+    padding: 0 10px 0 10px;
+    display:block;  
+   
+}
+
+#menufooter #menupeg2 .menu2 li a {
+    font-family: 'Microsoft PhagsPa', sans-serif;
+    margin: 0 25px 0 25px;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    border-bottom: 2px solid white;
+    transition: ease .6s;
+    display: block;
+    text-align: center;
+
+}
+ 
+#menufooter #menupeg2  .menu2 li a:hover {
+ 
+    transition: ease .6s;
+    color: #611E5B;
+}
+
+#menufooter #menupeg2 .menu2 li a:checked {
+    color: #611E5B !important; 
+}
+
+#purplefooter{
+  width:100%;
+  height:auto;
+    display: inline-flex;
+  background-color:#350633;
+}
+
+.div_dosfooter{
+  padding-top: 20px;
+    padding-bottom: 20px;
+  height:auto;
+  margin:0 auto; 
+  background-color:#350633;
+}
+.redesfooter{
+    margin: auto;
+  height:auto;
+  display: inline-block;
+    vertical-align: middle;
+}
+.pictogramas{
+  width:45px;
+  height:auto;
+  display:inline-block;
+  margin-left:15px;
+  margin-top:9px;
+}
+
+.pictogramas img {
+    cursor: pointer;
+    animation-duration: 0.5s;
+    animation-timing-function:ease-in-out;
+  
+    
+}
+
+     
+ .pictogramas img:hover {
+    animation-iteration-count: 1;
+    animation-name: redes_footer;
+    animation-duration: 0.5s;
+    animation-timing-function:ease-in-out;
+  
+}
+
+
+@keyframes redes_footer {
+    0%   {
+        transform: rotate(0deg);
+    }
+    25%  {
+        transform: rotate(10deg);
+    }
+    
+    50%  {
+        transform: rotate(-10deg);
+    }
+    
+    100% {
+        transform: rotate(0deg);
+    }
+}
+.quarzoysena{
+    vertical-align: middle;
+    margin-left: 20px;
+      height:auto;
+      display: inline-block;
+
+  
+  
+}
+#logossenaquarzo{
+    
+  margin-left: auto;
+  
+}
+.derechos{
+  width:auto;
+height: auto;
+display: inline-block;
+    margin-left: 20px;
+
+
+}
+.redesmedia{
+	width:100%
+	}
+/*----mediascreen footer----*/
+ @media screen and (max-width: 1024px){
+	 #bluefooter{
+  width:100%;
+  height:auto;
+}
+footer .div_unofooter{
+     width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+#form{
+	width: 90%;
+    display: block;
+    margin:0 auto;
+    
+    
+    
+}
+#interactibofooter{
+      margin:0 auto;
+    width: auto;
+}
+#contact{
+    text-align: center;
+     width: 100%;
+    height: auto;
+    display: block;
+    
+ 
+}
+#textocontacto{
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+#contacto{
+  font-family: 'microsoft new tai lue', sans-serif;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 78px;
+    text-align: left;
+    color: #006DA4;
+    padding: 50px 0;
+
+}
+#infocontacto{
+  width: 100%;
+    height: 42px;
+    margin: 0 auto;
+    padding: 0;
+}
+.textogris{
+      font-family: 'microsoft new tai lue', sans-serif;
+    text-align: justify;
+    margin: 0px auto;
+    line-height: 25px;
+    padding: 0px 50px 0px 25px;
+    color: #A0A0A0;
+}
+.textogris2{
+    
+    font-size: 10px;
+    font-family: 'microsoft new tai lue', sans-serif;
+    text-align: center;
+    margin: 0px auto;
+    line-height: 17px;
+    padding: 10px 0px 0px 0px;
+    color: #A0A0A0;
+    padding: 2%;
+}
+
+#menufooter{
+  width: 300px;
+    height: 190px;
+    float: none;
+    margin: 0 auto;
+}
+#menufooter #menupeg2 {
+	padding-top: 0px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#menufooter #menupeg2 .menu{
+    text-align:center;   
+}
+
+#menufooter #menupeg2 .menu li {
+    padding: 0 10px 0 10px;
+    display:block;  
+   
+}
+
+#menufooter #menupeg2 .menu li a {
+    font-family: 'Microsoft PhagsPa', sans-serif;
+    margin: 0 25px 0 25px;
+    padding: 15px 80px;
+    text-decoration: none; 
+    color: white;
+    font-size: 14px;
+    border-bottom: 2px solid white;
+    transition: ease .6s;
+    display:block;
+
+}
+ 
+#menufooter #menupeg2  .menu li a:hover {
+ 
+    transition: ease .6s;
+    color: #611E5B;
+}
+
+#menufooter #menupeg2 .menu li a:checked {
+    color:#611E5B !impportant; 
+}
+
+#purplefooter{
+ width: 100%;
+height: auto;
+  background-color:#350633;
+}
+
+.div_dosfooter{
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+  background-color:#350633;
+}
+.redesfooter{
+    display: block;
+    height: auto;
+    float: none;
+    text-align: center;
+    
+
+}
+.pictogramas{
+    height: auto;
+    position: relative;
+    margin:0 auto;
+}
+     
+
+
+.quarzoysena{
+    height: auto;
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+#logossenaquarzo{
+  margin-top: 5px;
+  margin-left: 0px;
+}
+.derechos{
+      width: auto;
+    height: auto;
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+
+}
+.redesmedia{
+	width:90%
+	}
+ }
+    
+
+.formulario {
+	width: 600px;
+	background: blue;
+}
+
+
+    
+    
+    /*------formulario------------*/
+
+
+    /*----------responsive formulario-----------*/
+
+@media screen and (max-width: 1024px){
+    #id123-control34667898 {
+        width: 100% !important;
+    }
+    #id123-control34667899 {
+        width: 100% !important;
+    }
+    
+    #escribenos {
+        font-size: 40px !important;
+    }
+}
+
+
+
+#person {
+    padding: 10px;
+    text-decoration: none;
+    font-family: 'microsoft new tai lue', sans-serif;
+    font-size: 30px;
+    color:#350633;
+    font-weight: 600;
+}
+
